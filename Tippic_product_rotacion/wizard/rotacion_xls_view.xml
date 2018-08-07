@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+		<record id="rotacion_excel_view" model="ir.ui.view">
+			<field name="name">rotacion.reports</field>
+			<field name="model">rotacion.reports</field>
+			<field name="arch" type="xml">
+				<form string="Export rotacion Order">
+				<p class="oe_grey">
+				¿Desea imprimir los elementos seleccionados?
+				</p>			  
+					<footer>
+						<button string="Imprimir reporte en Excel" class="btn-primary" name="action_rotacion_report" type="object" />
+						<button string="Cancelar" class="btn-primary" special="cancel"/>
+					</footer>
+				</form>						
+			</field>
+		</record>
+
+
+	<record id="rotacion_excel_views" model="ir.ui.view">
+		<field name="name">rotacion.report.out</field>
+		<field name="model">rotacion.report.out</field>
+		<field name="arch" type="xml">
+			<form string="Exportar Rotacion movimiento">
+				<group>
+					<field name="file_names" filename="rotacion_work" />
+					<field name="rotacion_work" invisible="1" />
+				</group>
+				<footer>
+					<button string="Cancelar" class="btn-primary" special="cancel"/>
+				</footer>
+			</form>
+		</field>
+	</record>	
+		
+
+		<act_window id="action_rotacion_excel" key2="client_action_multi"
+			name="Imprimir Movimiento Rotación de Productos" res_model="rotacion.reports" src_model="product.template"
+			view_mode="form" target="new" />
+
+</odoo>

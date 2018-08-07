@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+		<record id="invoice_excel_view" model="ir.ui.view">
+			<field name="name">invoice.reports</field>
+			<field name="model">invoice.reports</field>
+			<field name="arch" type="xml">
+				<form string="Export invoice Order">
+				<p class="oe_grey">
+				¿Desea imprimir los elementos seleccionados?
+				</p>			  
+					<footer>
+						<button string="Imprimir reporte en Excel" class="btn-primary" name="action_invoice_report" type="object" />
+						<button string="Cancelar" class="btn-primary" special="cancel"/>
+					</footer>
+				</form>						
+			</field>
+		</record>
+
+
+	<record id="invoice_excel_views" model="ir.ui.view">
+		<field name="name">invoice.report.out</field>
+		<field name="model">invoice.report.out</field>
+		<field name="arch" type="xml">
+			<form string="Exportar Invoice movimiento">
+				<group>
+					<field name="file_names" filename="invoice_work" />
+					<field name="invoice_work" invisible="1" />
+				</group>
+				<footer>
+					<button string="Cancelar" class="btn-primary" special="cancel"/>
+				</footer>
+			</form>
+		</field>
+	</record>	
+		
+
+		<act_window id="action_invoice_excel" key2="client_action_multi"
+			name="Imprimir reporte de Facturas" res_model="invoice.reports" src_model="account.invoice"
+			view_mode="form" target="new" />
+
+</odoo>

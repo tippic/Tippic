@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+		<record id="stock_excel_view" model="ir.ui.view">
+			<field name="name">stock.reports</field>
+			<field name="model">stock.reports</field>
+			<field name="arch" type="xml">
+				<form string="Export stock Order">
+				<p class="oe_grey">
+				¿Desea imprimir los elementos seleccionados?
+				</p>			  
+					<footer>
+						<button string="Imprimir reporte en Excel" class="btn-primary" name="action_stock_report" type="object" />
+						<button string="Cancelar" class="btn-primary" special="cancel"/>
+					</footer>
+				</form>						
+			</field>
+		</record>
+
+
+	<record id="stock_excel_views" model="ir.ui.view">
+		<field name="name">stock.report.out</field>
+		<field name="model">stock.report.out</field>
+		<field name="arch" type="xml">
+			<form string="Exportar stock movimiento">
+				<group>
+					<!--<field name="file_name" filename="purchase_data" />
+					<field name="purchase_data" invisible="1" /> -->
+					<field name="file_names" filename="stock_work" />
+					<field name="stock_work" invisible="1" />
+				</group>
+				<footer>
+					<button string="Cancelar" class="btn-primary" special="cancel"/>
+				</footer>
+			</form>
+		</field>
+	</record>	
+		
+
+		<act_window id="action_stock_excel" key2="client_action_multi"
+			name="Imprimir Movimiento de almacen " res_model="stock.reports" src_model="stock.move.line"
+			view_mode="form" target="new" />
+
+</odoo>
