@@ -40,7 +40,7 @@ class StockWizards(models.Model):
                     str(values.date or ''),
                     str(values.reference or ''),
                     str(values.product_id.name or ''),
-                    str(values.lot_id or ''),
+                    str(values.lot_id.name or ''),
                     str(values.location_id.name or ''),
                     str(values.location_dest_id.name or ''),
                     str(values.qty_done or ''),
