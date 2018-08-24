@@ -99,7 +99,7 @@ class generic_excel_report(models.Model):
         data_obj = self.env['ir.model.data']
         for action in self.browse(self._ids):
             src_obj = action.model_name.model
-            model_data_id = data_obj._get_id('generic_excel_reports', 'view_globle_report_wizard_form')
+            model_data_id = data_obj._get_id('tippic_reports', 'view_globle_report_wizard_form')
             res_id = data_obj.browse( model_data_id).res_id
             button_name = _('Print (%s)') % action.name
             act_id = ActWindowSudo.create({
