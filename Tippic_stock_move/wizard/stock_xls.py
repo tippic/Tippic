@@ -41,7 +41,7 @@ class StockWizards(models.Model):
                     str(values.reference or ''),
                     str(values.product_id.name or ''),
                     str(values.lot_id.name or ''),
-                    str(values.move_id.partner_id.name or ''),
+                    str(values.move_id.partner_id.name or values.move_id.picking_id.partner_id.name or ''),
                     str(values.location_id.complete_name or ''),
                     str(values.location_dest_id.complete_name or ''),
                     str(values.qty_done or ''),
