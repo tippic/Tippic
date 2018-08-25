@@ -21,6 +21,20 @@
           </xpath>	
       </field>
     </record>
+    
+    <record id="invoice_tree" model="ir.ui.view">
+      <field name="name">account.invoice.tree.inherit.filter</field>
+      <field name="model">account.invoice</field>
+      <field name="inherit_id" ref="account.invoice_tree"/>
+      <field name="arch" type="xml">   
+        <xpath expr="//field[@name='date_due']" position="after">
+        
+           <field name="days_due"/>
+
+          </xpath>	
+      </field>
+    </record>
+    
   </data>
 </odoo>
 
