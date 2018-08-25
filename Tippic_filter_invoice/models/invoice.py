@@ -12,4 +12,4 @@ class AccountInvoice(models.Model):
             else:
                 invoice.days_due = False
     
-    Vencimiento=fields.Integer(compute=_days_due)
+    date_due=fields.Integer(compute=_days_due)
