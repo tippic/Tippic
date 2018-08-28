@@ -31,15 +31,14 @@ class StockWizards(models.Model):
 
 # XLS report
         custom_value = {}
-        label_lists = ['FECHA', 'CLIENTE', 'PROVEEDOR', 'MOVIMIENTO', 'PRODUCTO','LOTE', 'CANTIDAD', 'UNIDAD']
+        label_lists = ['FECHA', 'EMPRESA', 'MOVIMIENTO', 'PRODUCTO','LOTE', 'CANTIDAD', 'UNIDAD']
         order = self.env['stock.move.line'].browse(self._context.get('active_ids', list()))
 
         datas = []
         for values in order:
             item = [
                     str(values.date or ''),
-                    str(values.move_id.partner_id.name or values.move_id.picking_id.partner_id.name or ''),
-                    str(values.move_id.partner_id.name or values.move_id.picking_id.partner_id.name or ''),
+                    str(values.move_id.partner_id.name or values.move_id.picking_id.partner_id.parent_id.name or ''), 
                     str(values.reference or ''),
                     str(values.product_id.name or ''),
                     str(values.lot_id.name or ''),
