@@ -39,7 +39,6 @@ class StockWizards(models.Model):
             item = [
                     str(values.date or ''),
                     str(values.move_id.partner_id.name or or values.move_id.partner_id.parent_id.name values.move_id.picking_id.partner_id.name or ''),
-                
                     str(values.reference or ''),
                     str(values.product_id.name or ''),
                     str(values.lot_id.name or ''),
