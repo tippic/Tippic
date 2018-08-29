@@ -38,7 +38,7 @@ class StockWizards(models.Model):
         for values in order:
             item = [
                     str(values.date or ''),
-                    str(values.move_id.partner_id.parent_id.name or ''),
+                    str(values.move_id.partner_id.parent_id.name or values.move_id.partner_id.name or ''),
                     str(values.reference or ''),
                     str(values.product_id.name or ''),
                     str(values.lot_id.name or ''),
