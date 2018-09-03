@@ -1,24 +1,18 @@
 <odoo>
   <data>
     <!--Inherit quotations search view-->
-    <record id="view_account_invoice_inherit_search" model="ir.ui.view">
-      <field name="name">account.invoice.search.expand.filter</field>
-      <field name="model">account.invoice</field>
-      <field name="inherit_id" ref="account.view_account_invoice_filter"/>
+    <record id="account_tc" model="ir.ui.view">
+      <field name="name">account_tc.inherit.filter</field>
+      <field name="model">account.tc</field>
+      <field name="inherit_id" ref="account_tc"/>
       <field name="arch" type="xml">   
-        <xpath expr="//search" position="inside">
+        <xpath expr="//field[@name='date_due']" position="before">
           <!-- This field will show up on the default filters
                &lt; is the XML encoding for < and &gt; is the XML encoding for > -->
 
-           <filter string="Facturas Mayo - Abiertas" name="Filtro Mayo" domain="['&amp;', ('date_invoice', '&lt;', context_today().strftime('%Y-05-%d')), ('state', '=', 'open')]"/>
+            <field name="rate"/>
 
-          <filter string="Facturas Junio - Abiertas" name="Filtro Junio" domain="['&amp;', ('date_invoice', '&lt;', context_today().strftime('%Y-06-%d')), ('state', '=', 'open')]"/>
-
-          <filter string="Facturas Julio - Abiertas" name="Filtro Julio" domain="['&amp;', ('date_invoice', '&lt;', context_today().strftime('%Y-07-%d')), ('state', '=', 'open')]"/>
-
-          <filter string="Facturas Agosto - Abiertas" name="Filtro Agosto" domain="['&amp;', ('date_invoice', '&lt;', context_today().strftime('%Y-08-%d')), ('state', '=', 'open')]"/>
-
-          </xpath>	
+        </xpath>	
       </field>
     </record>
     
@@ -37,4 +31,3 @@
     
   </data>
 </odoo>
-
