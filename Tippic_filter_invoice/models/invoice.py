@@ -14,8 +14,4 @@ class AccountInvoice(models.Model):
     
     days_due=fields.Integer(compute=_days_due)
 
-class AccountTc(models.Model):        
-    _name = 'account.tc'
-    _inherit = 'account.tc'
 
-rate=fields.many2one('res.currency', string='TC')
