@@ -18,6 +18,6 @@ class AccountTc(models.Model):
     _name = 'account.tc'
     _inherit = 'account.tc'
 
-rate=fields.float('res.currency', string='TC')
+    rate=fields.float('res.currency', string='TC')
 
 
