@@ -7,7 +7,7 @@ class AccountInvoice(models.Model):
     def _days_due(self):
         for invoice in self:
             if invoice.date_due:
-                days_due = fields.Date.from_string(invoice.date_due) - fields.Date.from_string(fields.Date.today())
+                days_due = fields.Date.from_string(fields.Date.today()) - fields.Date.from_string(invoice.date_due) 
                 invoice.days_due = days_due.days
             else:
                 invoice.days_due = False
