@@ -1,21 +1,6 @@
 <odoo>
   <data>
-    <!--Inherit quotations search view-->
-    <record id="account_tc" model="ir.ui.view">
-      <field name="name">account_tc.inherit.filter</field>
-      <field name="model">account.tc</field>
-      <field name="inherit_id" ref="account_tc"/>
-      <field name="arch" type="xml">   
-        <xpath expr="//field[@name='date_due']" position="before">
-          <!-- This field will show up on the default filters
-               &lt; is the XML encoding for < and &gt; is the XML encoding for > -->
-
-            <field name="rate"/>
-
-        </xpath>	
-      </field>
-    </record>
-    
+    <!--Inherit quotations search view-->  
     <record id="invoice_tree" model="ir.ui.view">
       <field name="name">account.invoice.tree.inherit.filter</field>
       <field name="model">account.invoice</field>
