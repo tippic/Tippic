@@ -13,11 +13,3 @@ class AccountInvoice(models.Model):
                 invoice.days_due = False
     
     days_due=fields.Integer(compute=_days_due)
-
-class AccountTc(models.Model):        
-    _name = 'account.tc'
-    _inherit = 'account.tc'
-
-    rate=fields.float('res.currency', string='TC')
-
-
